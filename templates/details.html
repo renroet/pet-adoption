@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} {{pet.name}} {% endblock %}
+
+{% block content %}
+
+<h1>{{pet.name}}</h1>
+
+<div class="box-2">
+
+    <div class="b-3" >
+        <p class="l"><b>Name:</b></p>
+        <p>{{pet.name}}</p>
+    </div>
+    <div class="b-3" >
+        <p class="l"><b>Species:</b></p>
+        <p>{{pet.species}}</p>
+    </div>
+    <div class="b-3" >
+        <p class="l"><b>Age:</b></p>
+        <p>{{pet.age}}</p>
+    </div>
+    <div class="b-3" >
+        <p class="l"><b>Notes:</b></p>
+        <p>{{pet.notes}}</p>
+    </div>
+    <div class="b-3" >
+        <p class="l"><b>Available for Adoption:</b></p>
+        <p> {% if pet.available %} 
+                yes 
+            {% else %} 
+                no 
+            {% endif %}
+        </p>
+    </div>
+    <div class="b-4">
+        <img src="{{pet.photo_url}}" alt="">
+    </div>
+    <div class="b-3 inline" >
+        <div class="buttons sm-b">   
+            <a href="/{{pet.id}}/edit" class="btn btn-lg active" role="button">Edit Pet</a>
+            </div>
+            <div class="buttons">   
+                <a href="/" class="btn btn-lg active back" role="button">Back to Pets</a>
+                </div>
+    </div>
+
+</div>
+
+{% endblock %}
